@@ -7,13 +7,15 @@ import { ShutUpTslintComponent } from './shut-up-tslint/shut-up-tslint.component
 import { CallbackComponent } from './callback/callback.component';
 
 import { CallbackService } from './callback.service';
+import { SpreadOperatorComponent } from './spread-operator/spread-operator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DestructuringComponent,
     ShutUpTslintComponent,
-    CallbackComponent
+    CallbackComponent,
+    SpreadOperatorComponent
   ],
   imports: [
     BrowserModule

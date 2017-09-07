@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-interface IProduct {
-  brand: IBrand | undefined;
-  name: string;
-}
+import { FakeService } from '../fake.service';
 
-interface IBrand {
-  name: string;
-}
+import { IBrand, IProduct } from '../types.dt';
 
 @Component({
   selector: 'app-shut-up-tslint',
@@ -15,20 +10,16 @@ interface IBrand {
   styleUrls: ['./shut-up-tslint.component.css']
 })
 export class ShutUpTslintComponent implements OnInit {
-  product: IProduct = {
-    name: 'old product',
-    brand: { name: 'brand' }
-  };
-
-  constructor() { }
+  constructor(private fakeService: FakeService ) { }
 
   ngOnInit() {
   }
 
   method = () => {
-    if (this.product.brand.name === 'old product') {
-      this.product = this.product;
-    }
+    const product = {
+      name: 'camry',
+      brand: this.fakeService.getBrand()
+    };
   }
 
 }
