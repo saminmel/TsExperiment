@@ -10,7 +10,8 @@ import { IBrand, IProduct } from '../types.dt';
   styleUrls: ['./shut-up-tslint.component.css']
 })
 export class ShutUpTslintComponent implements OnInit {
-  constructor(private fakeService: FakeService ) { }
+  constructor(private fakeService: FakeService) { }
+  brandName: string;
 
   ngOnInit() {
   }
@@ -20,6 +21,10 @@ export class ShutUpTslintComponent implements OnInit {
       name: 'camry',
       brand: this.fakeService.getBrand()
     };
+  }
+
+  setBrandName(brandName?: string | undefined) {
+    this.brandName = brandName!;
   }
 
 }
