@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+interface IEmployee {
+  fullname: string;
+  gender: string;
+}
+
 @Component({
   selector: 'app-destructuring',
   templateUrl: './destructuring.component.html',
@@ -32,4 +37,26 @@ export class DestructuringComponent implements OnInit {
     this.description = `new description`;
     alert('non-destructuring click');
   }
+
+  generateEmployee = (): IEmployee => {
+    return {
+      fullname: 'John Lennon',
+      gender: 'M'
+    };
+  }
+
+  destructuring = () => {
+    const employee = this.generateEmployee();
+    const { fullname, gender } = employee;
+
+    console.log(fullname);
+    console.log(gender);
+  }
+
+  destructuringWithRename = () => {
+    const employee = this.generateEmployee();
+    const { gender: sex } = employee;
+    console.log(sex);
+  }
+  // there are other types of destructuring, like array destructuring, destructuring with rest, destructuring with ignores.
 }
